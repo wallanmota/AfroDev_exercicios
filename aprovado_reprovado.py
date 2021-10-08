@@ -34,7 +34,7 @@ mediaRecuperacao = float(input('Qual a méda para a recueração? '))
 qtdFaltas = int(input('Quantidade de faltas permitidas: '))
 
 listaQtdNotas = []
-qtdNotas = int(input('Quantas notas vc quer adicionar? '))
+qtdNotas = int(input('Quantas notas você quer adicionar? '))
 for i in range(1, qtdNotas + 1):
     listaQtdNotas.append(i)
 
@@ -44,7 +44,7 @@ for nota in listaQtdNotas:
     listaNotas.append(nota)
 media = sum(listaNotas) / qtdNotas
 
-faltas = int(input(f'Quantas faltas {alu} teve? '))
+faltas = int(input(f'Quantas faltas que {alu} teve: '))
 
 msgAprovado = f'Parabéns, {alu} {nome} foi APROVADO\nA média foi {media}'
 msgRecuperacao = f'Opa! {alu} {nome} está de RECUPERAÇÃO\nA média foi {media}'
