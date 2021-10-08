@@ -15,8 +15,19 @@
 
 print('SISTEMA DE APROVAÇÃO\n')
 
-nome = input('Olá, digite o nome do aluno: ')
+nome = input('Olá, digite o nome de alun@: ')
 nome = nome.title()
+identidade = input('Gostaria de ser identificado com pronome "masculino", "feminino" ou "neutro"? ')
+identidade = identidade.lower()
+alu = "alu"
+if identidade == 'masculino':
+    alu = 'o aluno'
+elif identidade == 'feminino':
+    alu = 'a aluna'
+elif identidade == 'neutro':
+    alu = 'ê alune'
+else:
+    alu = 'o/a alun@'
 
 mediaAprovacao = float(input('Qual a média para aprocação? '))
 mediaRecuperacao = float(input('Qual a méda para a recueração? '))
@@ -33,11 +44,11 @@ for nota in listaQtdNotas:
     listaNotas.append(nota)
 media = sum(listaNotas) / qtdNotas
 
-faltas = int(input('Quantas faltas o aluno teve? '))
+faltas = int(input(f'Quantas faltas {alu} teve? '))
 
-msgAprovado = f'Parabéns {nome}, você foi APROVADO\nSua média foi {media}'
-msgRecuperacao = f'Opa! {nome}, você está de RECUPERAÇÃO\nSua média foi {media}'
-msgReprovado = f'{nome}, infelizmente você foi REPROVADO\nSua média foi {media}'
+msgAprovado = f'Parabéns, {alu} {nome} foi APROVADO\nA média foi {media}'
+msgRecuperacao = f'Opa! {alu} {nome} está de RECUPERAÇÃO\nA média foi {media}'
+msgReprovado = f'Infelizmente {alu} {nome} foi REPROVADO\nA média foi {media}'
 
 if media >= mediaAprovacao and faltas <= qtdFaltas:
     print(msgAprovado)
