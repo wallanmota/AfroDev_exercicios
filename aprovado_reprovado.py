@@ -5,6 +5,14 @@
 # o sistema vai receber o nome, as notas e as faltas e vai exibir o nome e o status 
 # Aprovado ou reprovado.
 # Se a nota for 6, exibir a mensagem:  Status recuperação.
+######################################
+# Novas condições para o exercício:
+# não sei a quantidade de notas
+# não sei a média
+# não sei a quantidade de faltas permitidas
+# Print as mensagem de acordo com a identidade escolhida.
+
+
 
 print('SISTEMA DE APROVAÇÃO\n')
 
