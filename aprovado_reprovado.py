@@ -13,57 +13,37 @@
 # Print as mensagem de acordo com a identidade escolhida.
 
 
-
 print('SISTEMA DE APROVAÇÃO\n')
-
-def valor(n):
-    if n.isnumeric() == False:
-        return False
-    else:
-        return True
 
 nome = input('Olá, digite o nome do aluno: ')
 nome = nome.title()
 
-n1 = input('Digite a primeira nota: ')
-if valor(n1) == False:
-    while valor(n1) == False:
-        print('favor inserir apenas numeros')
-        n1 = input('Digite a primeira nota: ')
+mediaAprovacao = float(input('Qual a média para aprocação? '))
+mediaRecuperacao = float(input('Qual a méda para a recueração? '))
+qtdFaltas = int(input('Quantidade de faltas permitidas: '))
 
-n2 = input('Digite a segunda nota: ')
-if valor(n2) == False:
-    while valor(n2) == False:
-        print('favor inserir apenas numeros')
-        n2 = input('Digite a segunda nota: ')
+listaQtdNotas = []
+qtdNotas = int(input('Quantas notas vc quer adicionar? '))
+for i in range(1, qtdNotas + 1):
+    listaQtdNotas.append(i)
 
-n3 = input('Digite a terceira nota: ')
-if valor(n3) == False:
-    while valor(n3) == False:
-        print('favor inserir apenas numeros')
-        n3 = input('Digite a terceira nota: ')
+listaNotas = []
+for nota in listaQtdNotas:
+    nota = float(input(f'Digite a {nota}ª nota: '))
+    listaNotas.append(nota)
+media = sum(listaNotas) / qtdNotas
 
-n4 = input('Digite a quarta nota: ')
-if valor(n4) == False:
-    while valor(n4) == False:
-        print('favor inserir apenas numeros')
-        n4 = input('Digite a quarta nota: ')
+faltas = int(input('Quantas faltas o aluno teve? '))
 
-faltas = input('Digite a quantidade de faltas: ')
-if valor(faltas) == False:
-    while valor(faltas) == False:
-        print('favor inserir apenas numeros')
-        faltas = input('Digite a quantidade de faltas: ')
-faltas = int(faltas)
+msgAprovado = f'Parabéns {nome}, você foi APROVADO\nSua média foi {media}'
+msgRecuperacao = f'Opa! {nome}, você está de RECUPERAÇÃO\nSua média foi {media}'
+msgReprovado = f'{nome}, infelizmente você foi REPROVADO\nSua média foi {media}'
 
-media = (float(n1) + float(n2) + float(n3) + float(n4)) / 4
-
-
-if media >= 7 and faltas < 4:
-    print(f'Parabéns {nome}, você foi APROVADO')
-elif media >= 6 and faltas < 4:
-    print(f'Opa! {nome}, você está de RECUPERAÇÃO')
+if media >= mediaAprovacao and faltas <= qtdFaltas:
+    print(msgAprovado)
+elif media >= mediaRecuperacao  and faltas < qtdFaltas:
+    print(msgRecuperacao)
 else:
-    print(f'{nome}, infelizmente você foi REPROVADO')
+    print(msgReprovado)
 
 print('\nFIM DO PROGRAMA')
